@@ -8,45 +8,32 @@
 </head>
 <body>
   <div class="container">
-    <h1>Password Generator</h1>
-    <div>
-      <label for="theme-toggle">Choose Theme:</label>
-      <select id="theme-toggle">
-        <option value="light">Light</option>
-        <option value="dark">Dark</option>
-        <option value="system">System</option>
-      </select>
+    <header>
+      <h1>Password Generator</h1>
+      <label for="themeToggle" class="switch-label">Dark/Light Mode</label>
+      <input type="checkbox" id="themeToggle" class="theme-toggle">
+    </header>
+
+    <div class="password-container">
+      <input type="text" id="password" readonly>
+      <button id="copyButton" onclick="copyToClipboard()">Copy</button>
     </div>
 
-    <div id="generator-form">
-      <label for="password-length">Password Length:</label>
-      <input type="number" id="password-length" min="6" max="50" value="12">
-      
-      <label>
-        <input type="checkbox" id="include-uppercase"> Include Uppercase
-      </label>
-      
-      <label>
-        <input type="checkbox" id="include-lowercase" checked> Include Lowercase
-      </label>
-      
-      <label>
-        <input type="checkbox" id="include-numbers" checked> Include Numbers
-      </label>
-      
-      <label>
-        <input type="checkbox" id="include-symbols"> Include Symbols
-      </label>
-      
-      <button id="generate-btn">Generate Password</button>
+    <div class="settings">
+      <label for="passwordLength">Password Length</label>
+      <input type="range" id="passwordLength" min="8" max="32" value="16">
+      <span id="passwordLengthLabel">16</span>
     </div>
-    
-    <div id="result">
-      <h2>Generated Password:</h2>
-      <p id="password-output"></p>
-      <button id="copy-btn">Copy to Clipboard</button>
+
+    <div class="password-options">
+      <label><input type="checkbox" id="includeUppercase"> Include Uppercase Letters</label>
+      <label><input type="checkbox" id="includeNumbers"> Include Numbers</label>
+      <label><input type="checkbox" id="includeSymbols"> Include Symbols</label>
     </div>
+
+    <button id="generateButton" onclick="generatePassword()">Generate Password</button>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>
